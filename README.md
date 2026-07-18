@@ -133,7 +133,7 @@ flowchart LR
 ## 目录结构
 
 ```
-2026-04-22-smartrecruit/
+2026-07-17-smartrecruit/
 ├── app.py                      # Streamlit 主应用（交互层）
 ├── config.py                   # Pydantic 配置类
 ├── system_data_init.py         # 批量简历入库脚本
@@ -155,13 +155,6 @@ flowchart LR
 ├── models/                     # 本地模型文件
 │   ├── bge-m3/                 # BGE-M3 嵌入模型
 │   └── bge-reranker-base/      # BGE-Reranker 重排模型
-│
-├── mongodb/                    # MongoDB 前置学习（基础操作演示）
-├── elasticsearch/              # Elasticsearch 前置学习（基础操作演示）
-├── milvus/                     # Milvus 前置学习（基础操作演示）
-├── data/resume/                # 简历文件（支持 PDF/DOCX/TXT/MD/图片）
-├── tests/                      # 测试脚本
-├── logs/                       # 运行日志
 │
 ├── deployment/                 # Docker 部署文件
     └── docker-compose.yml    # 中间件编排（MongoDB/ES/Milvus/Attu）
