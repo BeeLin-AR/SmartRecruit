@@ -164,21 +164,8 @@ flowchart LR
 ├── logs/                       # 运行日志
 │
 ├── deployment/                 # Docker 部署文件
-│   └── docker-compose.yml    # 中间件编排（MongoDB/ES/Milvus/Attu）
-│
-└── lectures/                   # 📚 模块讲义
-    ├── 00-deployment/          # Docker 部署方案
-    ├── 01-document-processor/  # 文档处理模块讲义
-    ├── 02-vector-store/        # 向量存储模块讲义
-    ├── 03-rag-chain/           # RAG 链模块讲义
-    ├── 04-rag-pipeline/        # 意图路由模块讲义
-    ├── 05-evaluator/           # 评估模块讲义
-    └── 06-app/                 # Web 应用模块讲义
+    └── docker-compose.yml    # 中间件编排（MongoDB/ES/Milvus/Attu）
 ```
-
-## 快速开始
-
-> 详细部署方案见 [lectures/00-deployment/](lectures/00-deployment/README.md)
 
 ### 环境依赖
 
@@ -195,10 +182,8 @@ cd deployment
 docker compose up -d
 
 # 3. 创建 Python 环境
-#    方式一：venv
+#  venv:
 python3 -m venv .venv && source .venv/bin/activate
-#    方式二：conda
-conda create -n smartrecruit python=3.10 -y && conda activate smartrecruit
 
 # 4. 安装依赖
 pip install -r requirements.txt
@@ -206,22 +191,9 @@ pip install -r requirements.txt
 # 5. 配置 API Key
 echo 'DASHSCOPE_API_KEY=sk-your-actual-api-key' > .env
 
-# 6. 初始化简历数据【06-app模块完成时会初始化数据】
+# 6. 初始化简历数据
 python system_data_init.py
 
-# 7. 启动应用（如遇 torchvision 警告见 06 讲义）
+# 7. 启动应用
 streamlit run app.py
 ```
-
-## 讲义目录
-
-| # | 模块 | 讲义链接 | 核心知识点 |
-|---|---|---|---|
-| 00 | 部署 | [讲义](lectures/00-deployment/) | Docker Compose、镜像加速、环境配置、启动验证 |
-| 01 | 文档处理 | [讲义](lectures/01-document-processor/) | 多格式加载、父子块切分、LLM 结构化提取 |
-| 02 | 向量存储 | [讲义](lectures/02-vector-store/) | 稠密/稀疏向量、三库架构、混合检索+重排 |
-| 03 | RAG 链 | [讲义](lectures/03-rag-chain/) | LCEL 链编排、查询改写、上下文构建 |
-| 04 | 意图路由 | [讲义](lectures/04-rag-pipeline/) | 7 类意图识别、参数提取、多轮对话 |
-| 05 | 评估 | [讲义](lectures/05-evaluator/) | Ragas 四指标、健全性检查、端到端评估 |
-| 06 | Web 应用 | [讲义](lectures/06-app/) | Streamlit UI、Session State、缓存策略、数据初始化 |
-
